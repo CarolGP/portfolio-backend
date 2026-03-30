@@ -1,3 +1,6 @@
+import sgwaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./config/swagger.js";
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -16,6 +19,8 @@ app.use(express.json());
 connectDB();
 
 app.use("/gallery", galleryRoutes);
+
+app.use("/api-docs", sgwaggerUi.serve, sgwaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) =>{
     res.send("API FUNCIONA");

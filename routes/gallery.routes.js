@@ -56,4 +56,33 @@ router.post("/", upload.single("image"), async (req,res) => {
     }
 });
 
+router.put("/:id", async (req, res) => {
+
+    try {
+
+        const updatedItem = await Gallery.findByIdAndUpdate(
+
+            req.params.id,
+
+            {
+                title: req.body.title,
+                description: req.body.description
+            },
+
+            { new: true }
+
+        );
+
+        res.json(updatedItem);
+
+    } 
+    
+    catch (error) {
+
+        res.status(500).json(error);
+
+    }
+
+});
+
 export default router;

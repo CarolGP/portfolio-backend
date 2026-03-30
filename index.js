@@ -1,5 +1,7 @@
-import sgwaggerUi from "swagger-ui-express";
+import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger.js";
+
+import authRoutes from "./routes/auth.routes.js";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -20,13 +22,19 @@ connectDB();
 
 app.use("/gallery", galleryRoutes);
 
-app.use("/api-docs", sgwaggerUi.serve, sgwaggerUi.setup(swaggerSpec));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.use("/auth", authRoutes);
 
 app.get("/", (req, res) =>{
     res.send("API FUNCIONA");
 });
 
 const PORT = process.env.PORT || 3000;
+
+
+export default app;
+
 
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);

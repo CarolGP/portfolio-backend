@@ -7,7 +7,7 @@ export const getGallery = async (req, res) => {
 
   try {
 
-    const items = await Gallery.find();
+    const items = await Gallery.find({ section:"gallery" });
 
     res.json(items);
 
@@ -63,7 +63,9 @@ export const createItem = async (req, res) => {
 
           description: req.body.description,
 
-          imageUrl: result.secure_url
+          imageUrl: result.secure_url,
+
+          section: req.body.section
 
         });
 

@@ -6,7 +6,13 @@ const gallerySchema = new mongoose.Schema({
 
   description: String,
 
-  imageUrl: String
+  imageUrl: String,
+
+  section:{
+    type: String,
+    enum: ["gallery", "portfolio"],
+    default: "gallery"
+  }
 
 }, {
 

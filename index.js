@@ -11,6 +11,7 @@ import cors from "cors";
 
 import { connectDB } from "./config/db.js";
 import galleryRoutes from "./routes/gallery.routes.js";
+import portfolioRoutes from "./routes/portfolio.routes.js";
 
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(express.json());
 connectDB();
 
 app.use("/gallery", galleryRoutes);
+app.use("/portfolio", portfolioRoutes);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

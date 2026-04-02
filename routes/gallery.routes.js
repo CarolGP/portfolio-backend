@@ -2,12 +2,10 @@ import express from "express";
 import multer from "multer";
 
 import {
-
   getGallery,
   deleteItem,
   createItem,
   updateItem
-
 } from "../controllers/gallery.controller.js";
 
 
@@ -15,8 +13,9 @@ const router = express.Router();
 
 const storage = multer.memoryStorage();
 
-const upload = multer({ storage });
-
+const upload = multer({
+  storage
+});
 
 
 /**
@@ -31,7 +30,6 @@ const upload = multer({ storage });
 router.get("/", getGallery);
 
 
-
 /**
  * @swagger
  * /gallery/{id}:
@@ -41,15 +39,17 @@ router.get("/", getGallery);
 router.delete("/:id", deleteItem);
 
 
-
 /**
  * @swagger
  * /gallery:
  *   post:
  *     summary: Crear ilustración
  */
-router.post("/", upload.single("image"), createItem);
-
+router.post(
+  "/",
+  upload.single("image"),
+  createItem
+);
 
 
 /**
@@ -59,7 +59,5 @@ router.post("/", upload.single("image"), createItem);
  *     summary: Editar título y descripción
  */
 router.put("/:id", updateItem);
-
-
 
 export default router;

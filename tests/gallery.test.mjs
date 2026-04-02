@@ -15,10 +15,11 @@ test("GET /gallery devuelve array", async () => {
 
 });
 
-test("DELETE endpoint existe", async () => {
+
+test("DELETE /gallery/:id responde", async () => {
 
   const res = await request(app).delete("/gallery/123");
 
-  assert.ok([200,500].includes(res.statusCode));
+  assert.ok([200, 500].includes(res.statusCode));
 
 });

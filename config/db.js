@@ -8,6 +8,6 @@ export const connectDB = async () => {
         console.log("Mongo conectado");
         
     } catch (error){
-        console.log(error);
+        console.error("Error conectando a MondoDB:", error);
     }
 };

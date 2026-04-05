@@ -36,32 +36,6 @@ El servidor se ejecutará en: http://localhost:3000
 
 ---
 
-## Estructura del proyecto
-
-config/
-   cloudinary.js
-   db.js
-   swagger.js
-
-controllers/
-   gallery.controller.js
-   portfolio.controller.js
-
-models/
-   Gallery.js
-
-routes/
-   auth.routes.js
-   gallery.routes.js
-   portfolio.routes.js
-
-tests/
-   gallery.test.mjs
-
-index.js
-
----
-
 ## Endpoints principales
 
 ### Gallery
@@ -114,14 +88,3 @@ Permite probar los endpoints desde el navegador.
 ## Tests
 
 Ejecutar: npm test
-
----
-
-## Estado del proyecto
-
-API funcional para:
-
-- gestionar ilustraciones
-- mostrar portfolio
-- administrar contenido desde panel admin
-- almacenar imágenes en Cloudinary
